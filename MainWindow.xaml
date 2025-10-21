@@ -15,7 +15,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="NumberDisplay" Grid.Row="0" Height="150" FontSize="30" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <TextBox x:Name="NumberDisplay" Grid.Row="0" Height="150" FontSize="30" TextAlignment="Right"
+                 IsReadOnly="True" Grid.ColumnSpan="2" 
+                 Text="{Binding NumberDisplay, Mode=OneWay}"/>
 
         <!--UniformGrid 로 변경해야함 이건 기능 다 만들고 추후에-->
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -35,33 +37,33 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Row="0" Grid.Column="0" Content ="%" FontSize="20"/>
             <Button Grid.Row="0" Grid.Column="1" Content ="CE" FontSize="20"/>
-            <Button Grid.Row="0" Grid.Column="2" Content ="C" FontSize="20"/>
+            <Button Grid.Row="0" Grid.Column="2" Content ="C" FontSize="20" Click="ClearButton_Click"/>
             <Button Grid.Row="0" Grid.Column="3" Content ="&#xe750;" FontSize="30" FontFamily="Segoe Fluent Icons"/>
 
             <Button Grid.Row="1" Grid.Column="0" Content="IconNF" FontSize="25"/>
             <Button Grid.Row="1" Grid.Column="1" Content="x²" FontSize="25"/>
             <Button Grid.Row="1" Grid.Column="2" Content ="&#xe94b;" FontSize="25" FontFamily="Segoe Fluent Icons"/>
-            <Button Grid.Row="1" Grid.Column="3" Content="÷" FontSize="25"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="÷" FontSize="25" Click="OperationButton_Click"/>
 
             <Button Grid.Row="2" Grid.Column="0" Content="7" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="2" Grid.Column="1" Content="8" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="2" Grid.Column="2" Content="9" FontSize="25" Click="NumberButton_Click"/>
-            <Button Grid.Row="2" Grid.Column="3" Content="×" FontSize="25"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="×" FontSize="25" Click="OperationButton_Click"/>
 
             <Button Grid.Row="3" Grid.Column="0" Content="4" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="3" Grid.Column="1" Content="5" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="3" Grid.Column="2" Content="6" FontSize="25" Click="NumberButton_Click"/>
-            <Button Grid.Row="3" Grid.Column="3" Content="－" FontSize="25"/>
+            <Button Grid.Row="3" Grid.Column="3" Content="－" FontSize="25" Click="OperationButton_Click"/>
 
             <Button Grid.Row="4" Grid.Column="0" Content="1" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="4" Grid.Column="1" Content="2" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="4" Grid.Column="2" Content="3" FontSize="25" Click="NumberButton_Click"/>
-            <Button Grid.Row="4" Grid.Column="3" Content="＋" FontSize="25"/>
+            <Button Grid.Row="4" Grid.Column="3" Content="＋" FontSize="25" Click="OperationButton_Click"/>
 
             <Button Grid.Row="5" Grid.Column="0" Content="±" FontSize="25"/>
             <Button Grid.Row="5" Grid.Column="1" Content="0" FontSize="25" Click="NumberButton_Click"/>
             <Button Grid.Row="5" Grid.Column="2" Content="." FontSize="25"/>
-            <Button Grid.Row="5" Grid.Column="3" Content="=" FontSize="25"/>
+            <Button Grid.Row="5" Grid.Column="3" Content="=" FontSize="25" Click="EqualsButton_Click"/>
         </Grid>
     </Grid>
 </Window>
