@@ -44,8 +44,24 @@ namespace Calc
         }
         void EqualsButton_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
             viewModel.EqualsPressed();
+        }
+        void DecimalButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.DecimalPressed();
+
+        }
+        void ClearEntryButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.ClearEntryPressed();
+        }
+        void BackspaceButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.BackspacePressed();
+        }
+        void PlusMinusButton_Click(object sender, RoutedEventArgs e)
+        { 
+            viewModel.PlusMinusPressed();
         }
 
     }

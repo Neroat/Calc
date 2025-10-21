@@ -84,6 +84,9 @@ namespace Calc.ViewModel
                     case "÷":
                         result = calModel.Divide(_inputNumber, _secondNumber);
                         break;
+                    case null:
+                        result = double.Parse(NumberDisplay);
+                        break;
                 }
                 NumberDisplay = result.ToString();
                 _inputNumber = result;
@@ -102,6 +105,61 @@ namespace Calc.ViewModel
             _inputNumber = 0;
             _operation = null;
             _readyNumber = true;
+        }
+
+        public void DecimalPressed()
+        {
+            if (_readyNumber)
+            {
+                NumberDisplay = "0.";
+                _readyNumber = false;
+            }
+            else if (!NumberDisplay.Contains("."))
+            {
+                NumberDisplay += ".";
+            }
+        }
+
+        public void ClearEntryPressed()
+        {
+            NumberDisplay = "0";
+            _readyNumber = true;
+        }
+
+        public void BackspacePressed()
+        {
+            if (NumberDisplay == "0" || NumberDisplay.Length == 1)
+            {
+                NumberDisplay = "0";
+                _readyNumber = true;
+            }
+            else if (NumberDisplay.Length == 2 && NumberDisplay.Contains("-"))
+            {
+                NumberDisplay = "0";
+                _readyNumber = true;
+            }
+            else
+            {
+                NumberDisplay = NumberDisplay.Substring(0, NumberDisplay.Length - 1);
+            }
+
+        }
+
+        public void PlusMinusPressed()
+        {
+            if (NumberDisplay == "0")
+            {
+                return;
+            }
+
+            if (NumberDisplay.Contains('-'))
+            {
+                NumberDisplay = NumberDisplay.Substring(1);
+            }
+            else
+            {
+                NumberDisplay = "-" + NumberDisplay;
+            }
         }
     }
 
