@@ -63,6 +63,21 @@ namespace Calc
         { 
             viewModel.PlusMinusPressed();
         }
-
+        void PowButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.PowPressed();
+        }
+        void RootButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.RootPressed();
+        }
+        void PercentButton_Click(object obj, RoutedEventArgs e)
+        {
+            viewModel.PercentPressed();
+        }
+        void RecipButton_Click(object obj, RoutedEventArgs e)
+        {
+            viewModel.RecipPressed();
+        }
     }
 }

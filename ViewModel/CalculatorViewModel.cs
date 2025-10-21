@@ -161,6 +161,54 @@ namespace Calc.ViewModel
                 NumberDisplay = "-" + NumberDisplay;
             }
         }
+        public void PowPressed()
+        {
+            if (NumberDisplay == "0")
+            {
+                return;
+            }
+            double parseNumber = double.Parse(NumberDisplay);
+            parseNumber *= parseNumber;
+            NumberDisplay = parseNumber.ToString();
+            _readyNumber = true;
+        }
+        public void RootPressed()
+        {
+            double parseNumber = double.Parse(NumberDisplay);
+            if(parseNumber < 0)
+            {
+                NumberDisplay = "음수는 불가합니다.";
+                _readyNumber = true;
+                return;
+            }
+            NumberDisplay = Math.Sqrt(parseNumber).ToString();
+            _readyNumber = true;
+
+        }
+        public void PercentPressed()
+        {
+            if (_inputNumber==0)
+            {
+                NumberDisplay = "첫번째 값이 0이면 불가합니다.";
+                _readyNumber = true;
+                return;
+            }
+            switch(_operation)
+            {
+                case "＋" or "－":
+                    NumberDisplay = (_inputNumber*double.Parse(NumberDisplay)/100).ToString();
+                    break;
+                case "×" or "÷":
+                    NumberDisplay = (double.Parse(NumberDisplay)/100).ToString(); 
+                    break;
+            }
+        }
+        public void RecipPressed()
+        {
+            NumberDisplay = (1/double.Parse(NumberDisplay)).ToString();
+            _readyNumber = true;
+        }
+
     }
 
     
